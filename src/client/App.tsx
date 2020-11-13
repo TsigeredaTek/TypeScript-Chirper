@@ -1,27 +1,25 @@
-import * as React from 'react';
+import * as React from "react";
+import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
+import AllChirps from "./components/AllChirps";
+import Admin from "./components/Admin";
+import AddChirp from "./components/AddChirp";
+import Details from "./components/Details";
+import Navbar from "./components/Navbar";
 
-const App = (props: AppProps) => {
-	const [greeting, setGreeting] = React.useState<string>('');
-
-	React.useEffect(() => {
-		(async () => {
-			try {
-				const res = await fetch('/api/sup');
-				const greeting = await res.json();
-				setGreeting(greeting);
-			} catch (error) {
-				console.log(error);
-			}
-		})();
-	}, []);
-
-	return (
-		<div className="min-vh-100 d-flex justify-content-center align-items-center">
-			<h1 className="display-1">Hello World {greeting}!</h1>
-		</div>
-	);
+const App: React.FC = () => {
+  return (
+    <>
+      <BrowserRouter>
+        <Navbar />
+        <Switch>
+          <Route exact path="/" component={AllChirps} />
+          <Route exact path="/details/:id" component={Details} />
+          <Route exact path="/:id/admin" component={Admin} />
+          <Route exact path="/add" component={AddChirp} />
+        </Switch>
+      </BrowserRouter>
+    </>
+  );
 };
-
-interface AppProps {}
 
 export default App;

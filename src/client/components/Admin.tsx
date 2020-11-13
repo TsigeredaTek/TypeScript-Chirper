@@ -1,14 +1,6 @@
 import * as React from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 
-
-export interface IAdminProps extends RouteComponentProps<{ id: string }> { }
-
-export interface IAdminState {
-    user: string;
-    text: string
-}
-
 class Admin extends React.Component<IAdminProps, IAdminState> {
     constructor(props: IAdminProps) {
         super(props);
@@ -76,7 +68,7 @@ class Admin extends React.Component<IAdminProps, IAdminState> {
                     <div className="card-body">
                         <h3 className="card-tile">{this.state.user}</h3>
                         <div className="mb-3">
-                            <lable className="mr-2" htmlFor="text">Edit text:</lable>
+                            <label className="mr-2" htmlFor="text">Edit text:</label>
                             <input
                                 className="from-control"
                                 defaultValue={this.state.text}
@@ -96,6 +88,13 @@ class Admin extends React.Component<IAdminProps, IAdminState> {
         );
     }
 
+}
+
+interface IAdminProps extends RouteComponentProps<{ id: string }> { }
+
+interface IAdminState {
+    user: string;
+    text: string
 }
 
 export default Admin;

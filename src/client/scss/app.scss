@@ -1,45 +1,46 @@
 $theme-colors: (
-    'primary': #0091ea //Covalence Blue!  :D
+  "primary": #0091ea //Covalence Blue!  :D,
 );
 
-@import '../../../node_modules/bootstrap/scss/bootstrap.scss';
+@import "../../../node_modules/bootstrap/scss/bootstrap.scss";
 
 $font-header: serif;
-$text-color: darkgrey;
+$text-color: black;
+$font-body: Calibri (body);
+$main-color: blue;
 
-
-body{
-    font-family: $font-body;
-    background-color: $main-color;
-    color: $text-color;
+body {
+  font-family: $font-body;
+  background-color: $main-color;
+  color: $text-color;
 }
 
 .logoBar {
-    border-style: solid;
-    border-width: 40px;
-    border-color:$main-color;
+  border-style: solid;
+  border-width: 40px;
+  border-color: $main-color;
 }
 
 .header {
-    font-family: $font-header;
-    background-color:white;
-    font-size: 5.0em;
+  font-family: $font-header;
+  background-color: white;
+  font-size: 5em;
 }
 
 p {
-    background-color: gray;
+  background-color: gray;
 }
 
 .chirpInput {
-    height: 330px;
+  height: 330px;
 }
 
 .input-border {
-    border: none;
+  border: none;
 }
 
 .btn {
-    border: none;
-    font-family: $font-body;
-    color: black
+  border: none;
+  font-family: $font-body;
+  color: black;
 }

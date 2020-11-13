@@ -4,13 +4,19 @@ import routes from './routes';
 
 const app = express();
 
-let p = path.join(__dirname, '../public');
-console.log(p);
+app.use(express.static("public"));
 
 app.use(express.json());
-app.use(express.static(p));
-app.use(routes);
 
+app.use('/api', routes);
+
+let p = path.join(__dirname, '../public/index.html');
+
+app.get("*", (req, res) => {
+    res.sendFile(p)
+})
+
+//when an entire folder is referenced in app.use, it automatically looks for an index
 
 const port = process.env.PORT || 3001;
 app.listen(port, () => {

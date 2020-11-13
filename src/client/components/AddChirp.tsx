@@ -26,10 +26,10 @@ class AddChirp extends React.Component<AddChirpProps, AddChirpState> {
                     method: 'POST',
                     body: JSON.stringify(data),
                     headers: {
-                        "Content-type": "application/json"
+                        "Content-Type": "application/json"
                     },
                 });
-                this.props.history.push('/')
+                this.props.history.replace('/');
             } catch (err) {
                 console.log(err)
             }
